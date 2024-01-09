@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client-Side Authentication Demo</title>
+    <style>
+        #content {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<div id="loginForm">
+    <label for="username">Username:</label>
+    <input type="text" id="username" required><br>
+    <label for="password">Password:</label>
+    <input type="password" id="password" required><br>
+    <button onclick="login()">Login</button>
+</div>
+
+<div id="content">
+    <p>Congratulations! You have gained access to the website.</p>
+    <button onclick="logout()">Logout</button>
+</div>
+
+<script>
+    function login() {
+        var usernameInput = document.getElementById('username');
+        var passwordInput = document.getElementById('password');
+        var contentDiv = document.getElementById('content');
+        var loginFormDiv = document.getElementById('loginForm');
+
+        if (usernameInput.value === 'elephant' && passwordInput.value === 'unsafe') {
+            contentDiv.style.display = 'block';
+            loginFormDiv.style.display = 'none';
+        } else {
+            alert('Invalid credentials. Try again.');
+        }
+    }
+
+    function logout() {
+        var contentDiv = document.getElementById('content');
+        var loginFormDiv = document.getElementById('loginForm');
+
+        contentDiv.style.display = 'none';
+        loginFormDiv.style.display = 'block';
+    }
+</script>
+
+</body>
+</html>
+
